@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+<title>WebCam Access</title>
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="jquery.webcam.min.js"></script>
+</head>
+
+<body>
+
+<div align="center">
+
+<ul class="thumbnails">
+  
+    <div class="thumbnail">
+    	
+      <canvas id='canvas' width='150' height='150'></canvas>
+       </br></br>
+      <form>
+    	<video autoplay></video> 
+      <legend>Click the snapshot when you are Ready :)</legend>
+      <input type='button' id='capture' value="Snapshot"/></form> 
+    </div>
+  
+  </ul>
+</div>
+
+
+
+<script language='javascript'> 
+document.getElementById('capture').onclick = function() { 
+    var video = document.querySelector('video'); 
+    var canvas = document.getElementById('canvas');
+	var ctx = canvas.getContext('2d'); 
+	ctx.drawImage(video,0,0,150,150);
+	
+	var data = ctx.getImageData(0,0,canvas.width,canvas.height); 
+	
+	ctx.putImageData(data,0,0);  
+} 
+</script>  
+ 
+<script src="webcam.js"></script>
+<script src="{{STATIC_URL}}assets/js/bootstrap-button.js"></script>
+<script src="{{STATIC_URL}}assets/js/holder/holder.js"></script>
+</body>
+</html>

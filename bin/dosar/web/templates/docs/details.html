@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{STATIC_URL}}assets/css/bootstrap.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/css/docs.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}assets/css/tindex.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{{STATIC_URL}}assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{STATIC_URL}}assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{STATIC_URL}}assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{STATIC_URL}}assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="{{STATIC_URL}}assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="{{STATIC_URL}}assets/ico/favicon.png">
+    <script language="JavaScript">
+var gAutoPrint = true; // Tells whether to automatically call the print function
+
+function printSpecial()
+{
+if (document.getElementById != null)
+{
+var html = '<HTML>\n<HEAD>\n';
+
+if (document.getElementsByTagName != null)
+{
+var headTags = document.getElementsByTagName("head");
+if (headTags.length > 0)
+html += headTags[0].innerHTML;
+}
+
+html += '\n</HE>\n<BODY>\n';
+
+var printReadyElem = document.getElementById("printReady");
+
+if (printReadyElem != null)
+{
+html += printReadyElem.innerHTML;
+}
+else
+{
+alert("Could not find the printReady function");
+return;
+}
+
+html += '\n</BO>\n</HT>';
+
+var printWin = window.open("","printSpecial");
+printWin.document.open();
+printWin.document.write(html);
+printWin.document.close();
+if (gAutoPrint)
+printWin.print();
+}
+else
+{
+alert("The print ready feature is only available if you are using an browser. Please update your browswer.");
+}
+}
+
+</script>
+ 
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="{{STATIC_URL}}./main.html">DOSAR</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+             <li class="">
+                <a href="{{STATIC_URL}}./main.html">Home</a>
+              </li>
+               <li class="">
+                <a href="/registration/">Registration</a>
+              </li>
+              <li class="">
+                <a href="/special/">Special Nights</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./search.html">Search</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./info.html">Info</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./contact.html">Contacts</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./files.html">Files</a>
+              </li>
+            </ul>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>Details</h1>
+    <p class="lead">Non-Accommodation participants,Sponsors,Visitors,Vehicle's details</p>
+  </div>
+</header>
+
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+                  
+      </div>
+      <div class="span9">
+
+
+
+        <!-- Download
+        ================================================== -->
+        <section id="download-bootstrap">
+          <div class="page-header">
+            <h1>The Details are as follows :)</h1>
+
+            <div align="center">
+
+ 
+  
+</div>
+
+          <div id="printReady"> 
+              <table border="1">
+<tr>
+<th>S.No</th>
+<th>Name</th>
+<th>College</th>
+<th>City</th>
+<th>Fest ID</th>
+<th>Accom</th>
+<th>Events</th>
+
+</tr>
+{%for l in results%}
+<tr>
+<td></td>
+<td><a href="/details/participant/{{l.id}}">{{l}}</a></td>
+<td>{{l.college}}</td>
+<td>{{l.city}}</td>
+<td>{{l.fest_id}}</td>
+<td>{{l.accomm}}</td>
+<td>{{l.events}}</td>
+</tr>
+{%endfor%}
+
+</table>
+ 
+    <div class="thumbnail">
+      
+      <canvas id='canvas' width='150' height='150'></canvas>
+       </br></br>
+      <form>
+      <video autoplay></video> 
+      <legend>Click the snapshot when you are Ready :)</legend>
+      <input type='button' id='capture' value="Snapshot"/></form> 
+    </div>
+          </div>
+
+
+        </section>
+
+
+
+        <!-- File structure
+        ================================================== -->
+        
+
+
+
+      </div>
+    </div>
+
+  </div></br></br></br></br>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>Designed and built by Rakesh Vaddadi and Pradyumna Reddy</p>
+      </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{STATIC_URL}}assets/js/jquery.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-transition.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-alert.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-modal.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-dropdown.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-scrollspy.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-tab.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-tooltip.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-popover.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-button.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-collapse.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-carousel.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-typeahead.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-affix.js"></script>
+
+    <script src="{{STATIC_URL}}assets/js/holder/holder.js"></script>
+    <script src="{{STATIC_URL}}assets/js/google-code-prettify/prettify.js"></script>
+
+    <script src="{{STATIC_URL}}assets/js/application.js"></script>  
+    <script src="webcam.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-button.js"></script>
+    <script src="{{STATIC_URL}}assets/js/holder/holder.js"></script>
+    <script language='javascript'> 
+      document.getElementById('capture').onclick = function() { 
+          var video = document.querySelector('video'); 
+          var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d'); 
+        ctx.drawImage(video,0,0,150,150);
+        
+        var data = ctx.getImageData(0,0,canvas.width,canvas.height); 
+        
+        ctx.putImageData(data,0,0);  
+      } 
+    </script>
+</body>
+
+
+  </body>
+</html>

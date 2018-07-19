@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{STATIC_URL}}assets/css/bootstrap.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/css/docs.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+	
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{{STATIC_URL}}assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{STATIC_URL}}assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{STATIC_URL}}assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{STATIC_URL}}assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="{{STATIC_URL}}assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="{{STATIC_URL}}assets/ico/favicon.png">
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="{{STATIC_URL}}./login.html">LogOut</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+             <li class="">
+                <a href="{{STATIC_URL}}./main.html">Home</a>
+              </li>
+               <li class="">
+                <a href="/registration/">Registration</a>
+              </li>
+              <li class="active">
+                <a href="/special/">Special Nights</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./search.html">Search</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./info.html">Info</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./contact.html">Contacts</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./files.html">Files</a>
+              </li>
+            </ul>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Subhead
+================================================== -->
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>Special Nights</h1>
+    <p class="lead">Registration Check of Special Nights</p>
+  </div>
+</header>
+
+
+  <div class="container">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+      <div class="span3 bs-docs-sidebar">
+        
+      </div>
+      <div class="span9">
+
+
+
+        <!-- Download
+        ================================================== -->
+        <section id="download-bootstrap">
+          <div class="page-header">
+            <h1>Student's Fest ID </h1>
+          </div>
+          
+               <form class="form-search" method="GET" action="/special/">
+  <div class="input-append">
+    <input type="text" name="value"  class="span2 search-query" autofocus>
+    <button type="submit" class="btn">Scan ID</button>
+  </div></form>
+  
+  				
+				{%if results.presence and results.First%}
+  				<a><font face="Tahoma" size="5" color="red">YOU ALREADY ENTERED !!! </font></a></br>
+  				{%elif results.presence%}
+  				<a><font face="Tahoma" size="5" color="green">You can enter... :)</font></a></br>
+				{%else%}
+  				<a><font face="Tahoma" size="5" color="red">You Didn't Register Yet... :/ So spot done</font></a></br>
+				{%endif%}
+				
+                </div>
+            </div>
+<!--
+          <div class="row-fluid">
+            <div class="span6">
+              <h2>Download compiled</h2>
+              <p><strong>Fastest way to get started:</strong> get the compiled and minified versions of our CSS, JS, and images. No docs or original source files.</p>
+              <p><a class="btn btn-large btn-primary" href="{{STATIC_URL}}assets/bootstrap.zip" >Download Bootstrap</a></p>
+            </div>
+            <div class="span6">
+              <h2>Download source</h2>
+              <p>Get the original files for all CSS and JavaScript, along with a local copy of the docs by downloading the latest version directly from GitHub.</p>
+              <p><a class="btn btn-large" href="{{STATIC_URL}}https://github.com/twitter/bootstrap/zipball/master" >Download Bootstrap source</a></p>
+            </div>
+          </div> -->
+        </section>
+
+
+
+        <!-- File structure
+        ================================================== -->
+        
+
+
+
+      </div>
+    </div>
+
+  </div></br></br></br></br>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>Designed and built by Rakesh Vaddadi and Pradyumna Reddy</p>
+      </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="{{STATIC_URL}}http://platform.twitter.com/widgets.js"></script>
+    <script src="{{STATIC_URL}}assets/js/jquery.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-transition.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-alert.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-modal.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-dropdown.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-scrollspy.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-tab.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-tooltip.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-popover.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-button.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-collapse.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-carousel.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-typeahead.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-affix.js"></script>
+
+    <script src="{{STATIC_URL}}assets/js/holder/holder.js"></script>
+    <script src="{{STATIC_URL}}assets/js/google-code-prettify/prettify.js"></script>
+
+    <script src="{{STATIC_URL}}assets/js/application.js"></script>
+
+
+
+  </body>
+</html>

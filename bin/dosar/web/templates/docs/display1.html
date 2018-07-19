@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="{{STATIC_URL}}assets/css/bootstrap.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/css/docs.css" rel="stylesheet">
+    <link href="{{STATIC_URL}}assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="{{STATIC_URL}}assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{STATIC_URL}}assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{STATIC_URL}}assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{STATIC_URL}}assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="{{STATIC_URL}}assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="{{STATIC_URL}}assets/ico/favicon.png">
+  <style type="text/css" media="screen">
+    li {
+    list-style-type: none;
+}
+  </style> 
+
+    <script language="JavaScript">
+
+var gAutoPrint = true; // Tells whether to automatically call the print function
+
+function printSpecial()
+{
+if (document.getElementById != null)
+{
+var html = '<HTML>\n<HEAD>\n';
+
+if (document.getElementsByTagName != null)
+{
+var headTags = document.getElementsByTagName("head");
+if (headTags.length > 0)
+html += headTags[0].innerHTML;
+}
+
+html += '\n</HE>\n<BODY>\n';
+
+var printReadyElem = document.getElementById("printReady");
+
+if (printReadyElem != null)
+{
+html += printReadyElem.innerHTML;
+}
+else
+{
+alert("Could not find the printReady function");
+return;
+}
+
+html += '\n</BO>\n</HT>';
+
+var printWin = window.open("","printSpecial");
+printWin.document.open();
+printWin.document.write(html);
+printWin.document.close();
+if (gAutoPrint)
+printWin.print();
+}
+else
+{
+alert("The print ready feature is only available if you are using an browser. Please update your browswer.");
+}
+}
+
+</script>
+ 
+
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar" >
+
+          <div id="printReady" align="center"> 
+			  </br></br></br></br>
+</br>              <ul>
+              	{%if result.college%}
+                <li><canvas id='canvas' width='150' height='150'></canvas></li>
+       </br></br>
+                <li><b>Name    :<b>{{result.name}}</b></li></br>
+                <li><b>College </b> :<b>{{result.college}}</b></li></br>
+                <li><b>Check List</b>     :<b>{{result.checklist}}</b></li></br>
+				<li><b>Accommodation</b>     :<b>{{result.accomm}}</b></li></br>
+				<!--<li><b>Registration</b>     :<b>{{result.events}}</b></li></br>-->
+                <li><b>ID</b>    :<b>{{result.fest_id}}</b></li></br></br></br></br></br></br></br></br>
+				      </ul>
+               	
+				<div id="externalbox" style="width:2in,height:2in" align="center">
+				
+</div>
+
+<br />
+ <script type="text/javascript">
+  function get_object(id) {
+   var object = null;
+   if (document.layers) {
+    object = document.layers[id];
+   } else if (document.all) {
+    object = document.all[id];
+   } else if (document.getElementById) {
+    object = document.getElementById(id);
+   }
+   return object;
+  }
+get_object("inputdata").innerHTML=DrawCode39Barcode(get_object("inputdata").innerHTML,1);
+
+</script> 
+
+</li></br>
+				{%elif result.company%}
+                <li><b>Name    :<b>{{result.name}}</b></li></br>
+                <li><b>Organisation</b> :<b>{{result.company}}</b></li></br>
+                {%elif result.number%}
+                <li><b>Name    :<b>{{result.name}}</b></li></br>
+                <li><b>Vehicle</b> :<b>{{result.vehicle}}</b></li></br>
+                <li><b>Vehicle Number</b>     :<b>{{result.number}}</b></li></br>
+                <li><b>DeadLine</b>    :<b>{{result.deadline}}</b></li></br>
+                {%endif%}
+              </ul> 
+		      
+</div>
+
+<form id="printMe" name="printMe" align="center"> <input type="button" class="btn btn-primary" name="printMe" onClick="printSpecial()" value="Print the Details" > </form>
+<form class="form-search" action="{{STATIC_URL}}./disc.html" target="_blank">
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Print Disclaimer</button>
+  </div></form>
+<form class="photo-search" action="{{STATIC_URL}}./GetUSerMedia/index.html" target="_blank">
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Print Photo</button>
+        </section>
+
+
+
+        <!-- File structure
+        ================================================== -->
+        
+
+
+
+      </div>
+    </div>
+
+  </div></br></br></br></br>
+
+ <div class="thumbnail">
+      
+      <canvas id='canvas' width='150' height='150'></canvas>
+       </br></br>
+      <form>
+      <video autoplay></video> 
+      <legend>Click the snapshot when you are Ready :)</legend>
+      <input type='button' id='capture' value="Snapshot"/></form> 
+    </div>
+          </div>
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="{{STATIC_URL}}./main.html">DOSAR</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+             <li class="">
+                <a href="{{STATIC_URL}}./main.html">Home</a>
+              </li>
+               <li class="">
+                <a href="/registration/">Registration</a>
+              </li>
+              <li class="">
+                <a href="/special/">Special Nights</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./search.html">Search</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./info.html">Info</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./contact.html">Contacts</a>
+              </li>
+              <li class="">
+                <a href="{{STATIC_URL}}./files.html">Files</a>
+              </li>
+            </ul>
+             
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>Designed and built by Rakesh Vaddadi and Pradyumna Reddy</p>
+      </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="{{STATIC_URL}}http://platform.twitter.com/widgets.js"></script>
+    <script src="{{STATIC_URL}}assets/js/jquery.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-transition.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-alert.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-modal.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-dropdown.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-scrollspy.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-tab.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-tooltip.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-popover.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-button.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-collapse.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-carousel.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-typeahead.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-affix.js"></script>
+
+    <script src="{{STATIC_URL}}assets/js/holder/holder.js"></script>
+    <script src="{{STATIC_URL}}assets/js/google-code-prettify/prettify.js"></script>
+
+    <script src="{{STATIC_URL}}assets/js/application.js"></script>
+    <script src="webcam.js"></script>
+    <script src="{{STATIC_URL}}assets/js/bootstrap-button.js"></script>
+    <script src="{{STATIC_URL}}assets/js/holder/holder.js"></script>
+    <script language='javascript'> 
+    if(navigator.webkitGetUserMedia!=null) { 
+  var options = { 
+        video:true, 
+        audio:false 
+    };
+  
+  navigator.webkitGetUserMedia(options, 
+        function(stream) { 
+            var video = document.querySelector('video'); 
+            video.src = window.webkitURL.createObjectURL(stream); 
+        }, 
+        function(e) { 
+      alert("You need to allow webcam access for this page");
+            console.log("There was a problem with webkitGetUserMedia"); 
+        } 
+    );  
+    
+}
+
+      document.getElementById('capture').onclick = function() { 
+          var video = document.querySelector('video'); 
+          var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d'); 
+        ctx.drawImage(video,0,0,150,150);
+        
+        var data = ctx.getImageData(0,0,canvas.width,canvas.height); 
+        
+        ctx.putImageData(data,0,0);  
+      } 
+    </script>
+
+
+  </body>
+</html>
